@@ -1,0 +1,103 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.hide {
+  display: none;
+}
+
+.color-primary {
+  background-color: #60a8f0;
+}
+
+.color-monetized {
+  background-color: #0f9d58;
+}
+
+.color-demonetized {
+  background-color: #dbac2b;
+}
+
+a {
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+body {
+  margin: 0;
+  font-family: 'Source Code Pro', sans-serif;
+  color: white;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+body a {
+  color: #f2ff00;
+  text-decoration: none;
+}
+
+body.color-demonetized a {
+  color: #60a8f0;
+}
+
+.container {
+  width: 100vw;
+  text-align: center;
+}
+
+.container h1 {
+  padding: 0.2rem 1rem;
+  font-size: 2rem;
+  margin-top: 4rem;
+}
+
+@media screen and (min-width: 800px) {
+  .container h1 {
+    padding: 0;
+    font-size: 3rem;
+  }
+}
+
+.container .query {
+  width: 100%;
+}
+
+.container .query form input {
+  text-align: center;
+  color: black;
+  font-size: 2rem;
+  width: 100%;
+  padding: 1.5rem;
+  font-family: 'Source Code Pro', sans-serif;
+  outline: none;
+}
+
+@media screen and (min-width: 800px) {
+  .container .query form input {
+    font-size: 3rem;
+  }
+}
+
+.container .message {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  padding: 0 1rem;
+}
+
+@media screen and (min-width: 800px) {
+  .container .message {
+    font-size: 2rem;
+  }
+}
+
+.footer {
+  display: block;
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */

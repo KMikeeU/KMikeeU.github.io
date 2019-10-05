@@ -1,0 +1,108 @@
+
+$demonetized: #dbac2b;
+$monetized: #0f9d58;
+$primary: #60a8f0;
+$link: #f2ff00;
+
+@mixin wide{
+    @media screen and (min-width: 800px){
+        @content;
+    }
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.hide{
+    display: none;
+}
+
+.color-primary{
+    background-color: $primary;
+}
+
+.color-monetized{
+    background-color: $monetized;
+}
+
+.color-demonetized{
+    background-color: $demonetized;
+}
+
+a{
+    transition: background-color 0.5s ease;
+}
+
+body{
+    margin: 0;
+    font-family: 'Source Code Pro', sans-serif;
+    color: white;
+    transition: background-color 0.5s ease;
+
+    a{
+        color: $link;
+        text-decoration: none;
+    }
+
+    &.color-demonetized{
+        a{
+            color: $primary;
+        }
+    }
+
+}
+
+.container{
+    width: 100vw;
+    text-align: center;
+    h1{
+        padding: 0.2rem 1rem;
+        font-size: 2rem;
+
+        @include wide{
+            padding: 0;
+            font-size: 3rem;
+        }
+
+        margin-top: 4rem;
+    }
+    .query{
+        width: 100%;
+        form{
+            input{
+                text-align: center;
+                color: black;
+                font-size: 2rem;
+                width: 100%;
+                padding: 1.5rem;
+                font-family: 'Source Code Pro', sans-serif;
+                outline: none;
+
+                @include wide{
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+
+    .message{
+        display: block;
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        padding: 0 1rem;
+
+        @include wide{
+            font-size: 2rem;
+        }
+    }
+}
+
+.footer{
+    display: block;
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+}
