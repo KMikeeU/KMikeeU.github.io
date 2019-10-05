@@ -47,7 +47,7 @@ body{
 
     &.color-demonetized{
         a{
-            color: $primary;
+            color: invert($link);
         }
     }
 
