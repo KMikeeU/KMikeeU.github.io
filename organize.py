@@ -1,23 +1,27 @@
+#!/bin/env python3
+
+# Please first download "Confirmed Demonetized Words" from https://docs.google.com/spreadsheets/d/1ozg1Cnm6SdtM4M5rATkANAi07xAzYWaKL7HKxyvoHzk/edit#gid=674179785 as words.csv
+# This script takes the csv and extracts only the demonetized words into words.json
+# 1st Column [0], 4-End Rows [3:]
+
 import json
-import requests
-from bs4 import BeautifulSoup
 
-print("Downloading spreadsheet...")
-req = requests.get("https://docs.google.com/spreadsheets/d/1ozg1Cnm6SdtM4M5rATkANAi07xAzYWaKL7HKxyvoHzk/htmlview?sle=true")
+# Read file and split into list, by lines
+with open("words.csv") as file:
+    lines = file.read().splitlines()
 
-print("Spreadsheet downloaded, gathering data...")
+extracted = []
 
-soup = BeautifulSoup(req.text, "html.parser")
-matches = soup.find_all("td", {"class": "s2"})
+# Split lines by commas and fill 'extracted' with comma-separated lines
+for line in lines:
+    extracted.append(line.split(","))
 
-word_list = []
+words = []
 
-for match in matches:
-    word_list.append(match.getText().lower())
+# Select the first columns from every row starting at 4 and append to words
+# Note: Extracting words as lowercase, since that is how they are treated in the final JS
+for row in extracted[3:]:
+    words.append(row[0].lower())
 
-print("Saving output")
-
-with open("words.json", "w+") as file:
-    file.write(json.dumps(word_list))
-
-print("Done!")
+# Dump json array of words to words.json
+open("words.json", "w").write(json.dumps(words))
